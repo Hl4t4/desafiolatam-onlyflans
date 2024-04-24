@@ -1,0 +1,17 @@
+python -m venv venv-onlyflans
+
+python --version
+
+.\venv-onlyflans\Scripts\activate
+
+pip freeze
+
+django-admin startproject onlyflans
+
+cd onlyflans
+
+python manage.py makemigrations
+
+python manage.py migrate
+
+python manage.py runserver
