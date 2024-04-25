@@ -1,0 +1,20 @@
+* {
+    font-family: "Oswald", sans-serif;
+}
+
+header {
+    background-color: #695e93;
+}
+
+nav {
+    background-color: #281c2d;
+}
+
+section {
+    background-color: #8155ba;
+    color: #beafc2;
+}
+
+footer {
+    background-color: #281c2d;
+}
