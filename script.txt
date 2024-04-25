@@ -15,3 +15,27 @@ python manage.py makemigrations
 python manage.py migrate
 
 python manage.py runserver
+
+CASO USAR VIRTUALENVWRAPPER
+
+pip install virtualenvwrapper-win
+
+Set-ExecutionPolicy RemoteSigned -Scope Process
+
+workon onlyflans
+
+Archivos se encuentran en carpeta powershell
+https://github.com/yungang/workon-use-powershell?tab=readme-ov-file
+
+Unblock-File -Path C:\Users\josel\AppData\Roaming\Python\Python310-32\Scripts\workon.ps1
+Unblock-File -Path C:\Users\josel\AppData\Roaming\Python\Python310-32\Scripts\cdproject.ps1
+
+pip install django==4.2
+
+cd onlyflans
+
+python manage.py runserver
+
+---------------------------------------------------
+
+python manage.py createsuperuser
