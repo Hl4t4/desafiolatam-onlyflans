@@ -17,6 +17,6 @@ class Flan(models.Model):
 
 class ContactForm(models.Model):
     contact_form_uuid = models.UUIDField(default= uuid.uuid4, editable=False)
-    customer_email = models.EmailField()
-    customer_name = models.CharField(max_length=64)
-    message = models.TextField()
+    customer_email = models.EmailField(verbose_name = "Correo")
+    customer_name = models.CharField(max_length=64, verbose_name="Nombre")
+    message = models.TextField(verbose_name="Mensaje")
