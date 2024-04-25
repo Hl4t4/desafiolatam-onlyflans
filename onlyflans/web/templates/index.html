@@ -1,4 +1,20 @@
 {% extends 'base.html' %}
 {%block content%}
-<h1>indice</h1>
+<section class="container-fluid py-4">
+    <div class = "row row-cols-4 px-3">
+        {% for flan in flanes %}
+            <div class = "col py-4">
+                <div class = "card border-0 h-100">
+                    <img src="{{ flan.image_url }}" class="card-img-top" alt= "{{flan.name}}" id= "{{flan.flan__uuid}}">
+                    <div class = "card-header text-center">
+                        <h3>{{ flan.name }}</h3>
+                    </div>
+                    <div class = "card-body">
+                        <p>{{ flan.description }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
 {% endblock content %}
