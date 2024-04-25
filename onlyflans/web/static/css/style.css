@@ -15,6 +15,10 @@ section {
     color: #beafc2;
 }
 
+.form-label {
+    text-decoration: underline;
+}
+
 footer {
     background-color: #281c2d;
 }
@@ -23,6 +27,10 @@ footer {
     width: 100%;
     height: 15vw;
     object-fit: cover;
+}
+
+.card-custom-bg {
+    background-color: rgba(191, 186, 212, 10);
 }
 
 button {

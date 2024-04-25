@@ -1,24 +1,27 @@
 {% extends 'base.html' %}
 {%block content%}
 <section class="container-fluid py-4">
-    <div class = "row row-cols-4 px-3">
-        <div class="col-12 text-center">
-            <h1>Flanes Privados</h1>
-            <p>Como usuario de nuestra plataforma, tiene acceso a secretos únicos de cocina para usted.</p>
-        </div>
-        {% for flan in flanes %}
-            <div class = "col py-4">
-                <div class = "card border-0 h-100">
-                    <img src="{{ flan.image_url }}" class="card-img-top" alt= "{{flan.name}}" id= "{{flan.flan__uuid}}">
-                    <div class = "card-header text-center">
-                        <h3>{{ flan.name }}</h3>
-                    </div>
-                    <div class = "card-body">
-                        <p>{{ flan.description }}</p>
+    <div class="card card-custom-bg">
+        <div class = "row row-cols-4 px-3">
+            <div class="col-12 text-center">
+                <h1>Flanes Privados</h1>
+                <hr style="width:50%; margin-left:auto; margin-right:auto;">
+                <p>Como usuario de nuestra plataforma, tiene acceso a secretos únicos de cocina para usted.</p>
+            </div>
+            {% for flan in flanes %}
+                <div class = "col py-4">
+                    <div class = "card border-0 h-100">
+                        <img src="{{ flan.image_url }}" class="card-img-top" alt= "{{flan.name}}" id= "{{flan.flan__uuid}}">
+                        <div class = "card-header text-center">
+                            <h3>{{ flan.name }}</h3>
+                        </div>
+                        <div class = "card-body">
+                            <p>{{ flan.description }}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
 </section>
 {% endblock content %}
