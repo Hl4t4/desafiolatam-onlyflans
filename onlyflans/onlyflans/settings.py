@@ -133,6 +133,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/bienvenido'
 LOGOUT_REDIRECT_URL = '/'
 
+OPTIONS = {
+    "libraries": {
+        "web_tags": "web.templatetags",
+        "admin.urls": "django.contrib.admin.templatetags.admin_urls",
+    },
+}
+
 CORS_ORIGIN_WHITELIST = [
 'http://localhost:3000',
 'http://127.0.0.1:3000',

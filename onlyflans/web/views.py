@@ -1,11 +1,8 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect, HttpResponse
-# from django.contrib.auth.views import LoginView, LogoutView
-# from django.urls import reverse
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
 from .models import Flan, ContactForm
 from .forms import ContactFormModelForm, FlanModelForm
 from django.contrib.auth.decorators import login_required
-# from django.contrib.auth import authenticate, login
 
 # Create your views here.
 
@@ -40,7 +37,6 @@ def contact_success_view(request):
 
 def add_flan_view(request):
     if request.method == 'POST':
-        # form = ContactFormForm(request.POST)
         form = FlanModelForm(request.POST)
         if form.is_valid():
             new_flan = form.cleaned_data
@@ -51,11 +47,10 @@ def add_flan_view(request):
             else:
                 return HttpResponseRedirect('/')
     else:
-        # form = ContactFormForm()
         form = FlanModelForm()
     return render(request, "add_flan.html", {'form': form})
 
-def your_flans_view(request, user):
+def your_flans_view(request, user="desafioLatam"):
     flanes_propios = {"flanes":Flan.objects.filter(user=request.user)}
     return render(request, "your_flanes.html", flanes_propios)
 

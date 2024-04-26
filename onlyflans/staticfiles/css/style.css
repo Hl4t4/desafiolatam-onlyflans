@@ -2,6 +2,10 @@
     font-family: "Oswald", sans-serif;
 }
 
+html {
+    background-color: #695e93;
+}
+
 header {
     background-color: #695e93;
 }

@@ -31,5 +31,6 @@ urlpatterns = [
     path('accounts/login/', LoginView.as_view(authentication_form=AuthenticationFormWithWidgets), name='login'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('agregar_flan/', add_flan_view),
-    path('<str:user>/tus_flanes', your_flans_view)
+    path('tus_flanes/', your_flans_view),
+    path('<str:user>/tus_flanes/', your_flans_view),
 ]

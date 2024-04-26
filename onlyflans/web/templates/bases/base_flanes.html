@@ -1,0 +1,58 @@
+{% extends '../base.html' %}
+{% load web_extras %}
+{%block content%}
+
+<section class="container-fluid py-4">
+    {% block flanes-privados %}
+    <div class="card card-custom-bg my-4">
+        <div class = "row row-cols-4 px-3">
+            <div class="col-12 py-5">
+                {% if request.path == '/bienvenido/' %}
+                    <h1>Bienvenid@ {{ user.get_username }}</h1>
+                    <p>Mira los suculentos flanes que tenemos para ti, pero... quizas sabes más que nosotros, y tienes una receta que compartir!</p>
+                {% else %}
+                    <h1>Gracias {{ user.get_username }}</h1>
+                    {% if flanes.count == 0 %}
+                        <p>No has subido ningun flan. Animo, todos tenemos una receta guardada por ahí.</p>
+                    {% elif flanes.count == 1 %}
+                        <p>Hasta el momento has subido {{ flanes.count }} flan hasta ahora.</p>
+                    {% else %}
+                        <p>Hasta el momento has subido {{ flanes.count }} flanes hasta ahora.</p>
+                    {% endif%}
+                {% endif %}
+                
+                <button type="button" class="btn btn-outline-secondary"><a href="/contacto">Contáctanos</a></button>
+                <button type="button" class="btn btn-outline-secondary"><a href="/agregar_flan">Ingresa tu Flan</a></button>
+                <button type="button" class="btn btn-outline-secondary">
+                    <a href={{ "/"|addstr:user.get_username|addstr:"/tus_flanes/" }}>Tus Flanes</a></button>
+            </div>
+        </div>
+    </div>
+    {% endblock flanes-privados %}
+    <div class="card card-custom-bg">
+        <div class = "row row-cols-4 px-3">
+            {% block descripcion-flanes%}
+                <div class="col-12 text-center">
+                    <h1>Flanes Privados</h1>
+                    <hr style="width:50%; margin-left:auto; margin-right:auto;">
+                    <p>Como usuario de nuestra plataforma, tiene acceso a secretos únicos de cocina para usted.</p>
+                </div>
+            {% endblock descripcion-flanes%}
+            {% for flan in flanes %}
+                <div class = "col py-4">
+                    <div class = "card border-0 h-100" id = "{{ flan.flan_uuid }}">
+                        <img src="{{ flan.image_url }}" class="card-img-top" alt= "{{ flan.name }}">
+                        <div class = "card-header text-center">
+                            <h3>{{ flan.name }}</h3>
+                        </div>
+                        <div class = "card-body overflow-y-scroll" >
+                            <p>{{ flan.description }}</p>
+                            <a href="#{{ flan.flan_uuid }}" class="nav-toggle text-black">Ver menos</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{%endblock content%}

@@ -1,0 +1,15 @@
+{% extends '../base.html' %}    
+{%block content%}
+<section class="container-fluid py-4">
+    <div class="card card-custom-bg w-50 mx-auto">
+        <div class="row">
+            {%block form-description%}
+            {%endblock form-description%}
+            <div class="col">
+                {% block form-details%}
+                {% endblock form-details%}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
