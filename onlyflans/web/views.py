@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 # from django.contrib.auth.views import LoginView, LogoutView
 # from django.urls import reverse
 from .models import Flan, ContactForm
-from .forms import ContactFormForm, ContactFormModelForm
+from .forms import ContactFormModelForm, FlanModelForm
 from django.contrib.auth.decorators import login_required
 # from django.contrib.auth import authenticate, login
 
@@ -39,7 +39,26 @@ def contact_success_view(request):
     return render(request, "contact_success.html", {})
 
 def add_flan_view(request):
-    return render(request, "add_flan.html", {})
+    if request.method == 'POST':
+        # form = ContactFormForm(request.POST)
+        form = FlanModelForm(request.POST)
+        if form.is_valid():
+            new_flan = form.cleaned_data
+            new_flan['user'] = request.user
+            flan_form = Flan.objects.create(**new_flan)
+            if request.POST["is_private"]:
+                return HttpResponseRedirect('/bienvenido')
+            else:
+                return HttpResponseRedirect('/')
+    else:
+        # form = ContactFormForm()
+        form = FlanModelForm()
+    return render(request, "add_flan.html", {'form': form})
+
+def your_flans_view(request, user):
+    flanes_propios = {"flanes":Flan.objects.filter(user=request.user)}
+    return render(request, "your_flanes.html", flanes_propios)
+
 
 # class CustomLoginView(LoginView):
 #     form_class = AuthenticationFormWithWidgets

@@ -29,8 +29,12 @@ footer {
     object-fit: cover;
 }
 
-.card-custom-bg {
+.card-custom-bg, .alert-custom-bg {
     background-color: rgba(191, 186, 212, 10);
+}
+
+.modal-custom-bg {
+    background-color: #281c2d;
 }
 
 button {

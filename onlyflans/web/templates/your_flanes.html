@@ -4,20 +4,25 @@
     <div class="card card-custom-bg my-4">
         <div class = "row row-cols-4 px-3">
             <div class="col-12 py-5">
-                <h1>Bienvenido {{ user.get_username }}</h1>
-                <p>Mira los suculentos flanes que tenemos para ti, pero... quizas sabes más que nosotros, y tienes una receta que compartir!</p>
+                <h1>Gracias {{ user.get_username }}</h1>
+                {% if flanes.count == 0 %}
+                    <p>No has subido ningun flan. Animo, todos tenemos una receta guardada por ahí.</p>
+                {% elif flanes.count == 1 %}
+                    <p>Hasta el momento has subido {{ flanes.count }} flan hasta ahora.</p>
+                {% else %}
+                    <p>Hasta el momento has subido {{ flanes.count }} flanes hasta ahora.</p>
+                {% endif%}
                 <button type="button" class="btn btn-outline-secondary"><a href="/contacto">Contáctanos</a></button>
                 <button type="button" class="btn btn-outline-secondary"><a href="/agregar_flan">Ingresa tu Flan</a></button>
-                <button type="button" class="btn btn-outline-secondary"><a href="/<str:user>/tus_flanes">Tus Flanes</a></button>
             </div>
         </div>
     </div>
     <div class="card card-custom-bg">
         <div class = "row row-cols-4 px-3">
             <div class="col-12 text-center">
-                <h1>Flanes Privados</h1>
+                <h1>Flanes Tuyos</h1>
                 <hr style="width:50%; margin-left:auto; margin-right:auto;">
-                <p>Como usuario de nuestra plataforma, tiene acceso a secretos únicos de cocina para usted.</p>
+                <p>Estos son los deliciosos flanes que tu nos has proporcioado.</p>
             </div>
             {% for flan in flanes %}
                 <div class = "col py-4">

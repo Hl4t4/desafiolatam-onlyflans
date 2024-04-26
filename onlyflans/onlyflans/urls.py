@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from web.views import index_view, about_view, welcome_view, contact_view, contact_success_view
+from web.views import index_view, about_view, welcome_view, contact_view, contact_success_view, add_flan_view, your_flans_view
 from django.contrib.auth.views import LoginView, LogoutView
 from web.forms import AuthenticationFormWithWidgets
 
@@ -30,4 +30,6 @@ urlpatterns = [
     path('exito/', contact_success_view),
     path('accounts/login/', LoginView.as_view(authentication_form=AuthenticationFormWithWidgets), name='login'),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('agregar_flan/', add_flan_view),
+    path('<str:user>/tus_flanes', your_flans_view)
 ]
