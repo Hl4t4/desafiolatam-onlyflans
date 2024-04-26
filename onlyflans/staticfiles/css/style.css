@@ -15,12 +15,50 @@ section {
     color: #beafc2;
 }
 
+.form-label {
+    text-decoration: underline;
+}
+
 footer {
     background-color: #281c2d;
 }
 
-.cardtest {
+.card-img-top {
+    width: 100%;
+    height: 15vw;
     object-fit: cover;
 }
 
-/* #733380 */
+.card-custom-bg {
+    background-color: rgba(191, 186, 212, 10);
+}
+
+button {
+    background-color: #733380;
+    color: white;
+}
+
+a:link {
+    color: white;
+    text-decoration: none;
+}
+  
+a:visited {
+    color: white;
+    text-decoration: none;
+}
+  
+a:hover {
+    color: lightgray;
+    text-decoration: underline;
+}
+  
+a:active {
+    color: lightgray;
+    text-decoration: underline;
+}
+
+input[type=submit] {
+    background-color: #733380;
+    color: white;
+}

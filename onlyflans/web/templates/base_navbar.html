@@ -11,9 +11,20 @@
         <div class="collapse navbar-collapse ps-3 pe-md-5" id="navbarNav">
             <div class="navbar-nav ms-auto">
                 <a class="nav-link text-light" href="/">Inicio</a>
-                <a class="nav-link text-light" href="/bienvenido">Bienvenido</a>
+                {% if user.is_authenticated %}
+                    <a class="nav-link text-light" href="/bienvenido">Bienvenido</a>
+                {% endif %}
                 <a class="nav-link text-light" href="/acerca">Acerca</a>
                 <a class="nav-link text-light" href="/contacto">Contacto</a>
+                
+                {% if user.is_authenticated %}
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="mt-2">Cerrar sesion</button>
+                </form>
+                {% else %}
+                    <a href="/accounts/login"><button type="submit" class="mt-2">Iniciar sesión</button></a>
+                {% endif %}
             </div>
         </div>
     </div>

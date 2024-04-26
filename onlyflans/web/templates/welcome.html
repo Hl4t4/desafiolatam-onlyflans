@@ -1,6 +1,15 @@
 {% extends 'base.html' %}
 {%block content%}
 <section class="container-fluid py-4">
+    <div class="card card-custom-bg my-4">
+        <div class = "row row-cols-4 px-3">
+            <div class="col-12 py-5">
+                <h1>Bienvenido {{ user.get_username }}</h1>
+                <p>Mira los suculentos flanes que tenemos para ti, pero... quizas sabes más que nosotros, y tienes una receta que compartir!</p>
+                <div><button type="button" class="btn btn-outline-secondary"><a href="/contacto">Contáctanos</a></button></div>
+            </div>
+        </div>
+    </div>
     <div class="card card-custom-bg">
         <div class = "row row-cols-4 px-3">
             <div class="col-12 text-center">

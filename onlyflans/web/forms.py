@@ -1,5 +1,7 @@
 from django import forms
 from .models import ContactForm
+from django.contrib.auth.forms import AuthenticationForm, UsernameField
+from django.utils.translation import gettext_lazy as _
 
 class ContactFormForm(forms.Form):
     customer_email = forms.EmailField(label="Correo")
@@ -15,3 +17,11 @@ class ContactFormModelForm(forms.ModelForm):
             'customer_name' : forms.TextInput(attrs={'class':'form-control', 'placeholder':'Nombre'}),
             'message' : forms.Textarea(attrs={'class':'form-control'}),
         }
+
+class AuthenticationFormWithWidgets(AuthenticationForm):
+    username = UsernameField(label=_("Nombre de usuario"), widget=forms.TextInput(attrs={"autofocus": True, 'class':'form-control', 'placeholder':'Nombre de usuario'}))
+    password = forms.CharField(
+        label=_("Contraseña"),
+        strip=False,
+        widget=forms.PasswordInput(attrs={"autocomplete": "current-password", 'class':'form-control', 'placeholder':'*****************'}),
+    )
