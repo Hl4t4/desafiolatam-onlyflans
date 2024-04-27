@@ -42,7 +42,7 @@ def add_flan_view(request):
             new_flan = form.cleaned_data
             new_flan['user'] = request.user
             flan_form = Flan.objects.create(**new_flan)
-            if request.POST["is_private"]:
+            if new_flan["is_private"]:
                 return HttpResponseRedirect('/bienvenido')
             else:
                 return HttpResponseRedirect('/')

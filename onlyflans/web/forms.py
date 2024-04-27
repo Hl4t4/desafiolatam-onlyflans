@@ -34,6 +34,6 @@ class FlanModelForm(forms.ModelForm):
         widgets = {
             'name' : forms.TextInput(attrs={'class':'form-control', 'placeholder':'Nombre'}),
             'description' : forms.Textarea(attrs={'class':'form-control', 'placeholder':'Descripcion'}),
-            'image_url' : forms.URLInput(attrs={'class':'form-control', 'placeholder':'http://www.dominio.cl/imagen.png'}),
+            'image_url' : forms.URLInput(attrs={'class':'form-control', 'placeholder':'http://www.dominio.cl/imagen.png', 'pattern': '/.*\.png|.*\.jpeg|.*\.jpg|.*\.gif|.*\.webp/'}),
             'is_private' : forms.CheckboxInput(attrs={'class':'form-check-input'}),
         }

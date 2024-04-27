@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-im*-^-onq(=zk@ac6o*6ss@shu!v*pxfv#263b1y6#&!!_vmc9
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    'localhost',
     'hlata.pythonanywhere.com'
 ]
 
