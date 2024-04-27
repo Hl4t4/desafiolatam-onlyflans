@@ -12,7 +12,7 @@ class Flan(models.Model):
     image_url = models.URLField(verbose_name = "URL de la imagen")
     slug = AutoSlugField(populate_from='name')
     is_private = models.BooleanField(default=False, verbose_name = "¿Es privado?")
-    user = models.ForeignKey(User, on_delete=models.CASCADE, default=list(User.objects.filter(username = 'desafioLatam'))[0].id)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=list(User.objects.filter(is_superuser = True))[0].id)
 
     class Meta :
         verbose_name = "flan"

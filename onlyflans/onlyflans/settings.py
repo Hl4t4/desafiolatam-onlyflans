@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-im*-^-onq(=zk@ac6o*6ss@shu!v*pxfv#263b1y6#&!!_vmc9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'hlata.pythonanywhere.com'
+]
 
 
 # Application definition
@@ -39,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'autoslug',
+    'sslserver',
     'web'
 ]
 
@@ -145,5 +148,6 @@ CORS_ORIGIN_WHITELIST = [
 'http://127.0.0.1:3000',
 'http://localhost:8000',
 'http://127.0.0.1:8000',
+'http://hlata.pythonanywhere.com'
 'https://kit.fontawesome.com'
 ]
