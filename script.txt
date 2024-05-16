@@ -46,3 +46,7 @@ python manage.py createsuperuser
 python manage.py collectstatic
 
 pip install django-cors-headers
+
+pip install django-sslserver-v2
+
+python manage.py runsslserver
