@@ -23,12 +23,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-im*-^-onq(=zk@ac6o*6ss@shu!v*pxfv#263b1y6#&!!_vmc9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'localhost',
+    'hlata-dev.cl',
+    'www.hlata-dev.cl',
+    'apps.hlata-dev.cl',
+    'onlyflans.apps.hlata-dev.cl',
     'hlata.pythonanywhere.com'
 ]
+
+CSRF_TRUSTED_ORIGINS = ['https://onlyflans.apps.hlata-dev.cl','https://*.127.0.0.1']
 
 
 # Application definition
@@ -48,6 +54,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -127,7 +134,8 @@ STATIC_URL = 'static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
+#STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -147,6 +155,10 @@ OPTIONS = {
 CORS_ORIGIN_WHITELIST = [
 'http://localhost:8000',
 'http://127.0.0.1:8000',
+'http://apps.hlata-dev.cl',
+'https://apps.hlata-dev.cl',
+'http://onlyflans.apps.hlata-dev.cl',
+'https://onlyflans.apps.hlata-dev.cl',
 'http://hlata.pythonanywhere.com',
 'https://kit.fontawesome.com'
 ]
