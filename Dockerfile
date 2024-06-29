@@ -14,7 +14,7 @@ COPY ./startcmd.sh ./
 COPY ./onlyflans/ ./
 
 # Update Linux and install dependencies
-RUN apk update && apk upgrade && apk add --no-cache make g++ openssh bind-tools curl
+RUN apk update && apk upgrade && apk add --no-cache make g++ bind-tools curl
 
 # Install pip packages
 RUN pip install -r requirements.txt
