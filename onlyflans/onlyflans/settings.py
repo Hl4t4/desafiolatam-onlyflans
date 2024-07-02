@@ -31,6 +31,10 @@ ALLOWED_HOSTS = [
     'www.hlata-dev.cl',
     'apps.hlata-dev.cl',
     'onlyflans.apps.hlata-dev.cl',
+    'hlata.bar',
+    'www.hlata.bar',
+    'apps.hlata.bar',
+    'onlyflans.hlata.bar',
     'hlata.pythonanywhere.com'
 ]
 
@@ -159,6 +163,10 @@ CORS_ORIGIN_WHITELIST = [
 'https://apps.hlata-dev.cl',
 'http://onlyflans.apps.hlata-dev.cl',
 'https://onlyflans.apps.hlata-dev.cl',
+'http://apps.hlata.bar',
+'https://apps.hlata.bar',
+'http://onlyflans.hlata.bar',
+'https://onlyflans.hlata.bar',
 'http://hlata.pythonanywhere.com',
 'https://kit.fontawesome.com'
 ]
